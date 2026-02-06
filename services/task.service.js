@@ -69,9 +69,7 @@ const updateTaskStatusService = async (id, status) => {
     }
 
     if (!["pending", "completed"].includes(status)) {
-      throw new BadRequestError(
-        "Status must be either 'pending' or 'completed'",
-      );
+      throw new BadRequestError("Status must be pending or completed");
     }
 
     const task = await Task.findByIdAndUpdate(
