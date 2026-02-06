@@ -11,6 +11,7 @@ A RESTful backend service for a Task Manager application that helps users manage
 - **API Style:** REST
 - **Environment Management:** dotenv
 - **Rate Limiting:** express-rate-limit
+- **Containerization:** Docker
 
 ## Features
 
@@ -19,7 +20,7 @@ A RESTful backend service for a Task Manager application that helps users manage
 ✅ Pagination support  
 ✅ Update task status (mark as completed/pending)  
 ✅ Delete tasks  
-✅ Error handling
+✅ Robust error handling & validation
 
 ## Project Structure
 
@@ -72,4 +73,10 @@ CLIENT_URL=http://localhost:3000
 
 ```bash
 npm run dev
+```
+
+4. **Run with Docker (Optional):**
+
+```bash
+docker-compose up --build
 ```

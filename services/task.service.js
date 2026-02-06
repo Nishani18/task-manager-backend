@@ -13,6 +13,10 @@ const createTaskService = async ({ title, status }) => {
       status: status || "pending",
     });
   } catch (error) {
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors).map((err) => err.message);
+      throw new BadRequestError(messages.join(", "));
+    }
     throw error;
   }
 };
@@ -84,6 +88,10 @@ const updateTaskStatusService = async (id, status) => {
 
     return task;
   } catch (error) {
+    if (error.name === "ValidationError") {
+      const messages = Object.values(error.errors).map((err) => err.message);
+      throw new BadRequestError(messages.join(", "));
+    }
     throw error;
   }
 };
