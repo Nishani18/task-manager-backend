@@ -19,7 +19,7 @@ app.use(
   cors({
     origin: [process.env.CLIENT_URL],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type"],
     credentials: true,
   }),
 );
@@ -43,8 +43,6 @@ app.get("/", (req, res) => {
 // Error Handling Middleware
 app.use(notFound);
 app.use(errorHandler);
-
-connectDB();
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
