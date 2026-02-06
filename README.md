@@ -25,17 +25,22 @@ A RESTful backend service for a Task Manager application that helps users manage
 
 ```
 ├── config/
-│   └── db.js                    # Database connection
+│   └── db.js                     # Database connection
 ├── controllers/
-│   └── task.controller.js       # Business logic
+│   └── task.controller.js        # HTTP request handlers (controllers)
+├── services/
+│   └── task.service.js           # Business logic & database operations
 ├── middleware/
-│   └── errorMiddleware.js       # Error handling
-│   └── rateLimiter.js           # Rate limiting handling
+│   ├── errorMiddleware.js        # 404 route & Global error handling
+│   └── rateLimiter.js            # API rate limiting
 ├── models/
-│   └── task.model.js            # Task schema
+│   └── task.model.js             # Task schema (Mongoose)
 ├── routes/
-│   └── task.routes.js           # API routes
-└── index.js                     # Main entry point
+│   └── task.routes.js            # API route definitions
+├── utils/
+│   └── appError.js               # Custom error classes
+└── index.js                      # Application entry point
+
 ```
 
 ## API Endpoints

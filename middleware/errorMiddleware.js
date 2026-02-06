@@ -1,15 +1,16 @@
+const { NotFoundError } = require("../utils/appError");
+
 const notFound = (req, res, next) => {
-  const error = new Error(`NOT FOUND - ${req.originalUrl}`);
-  res.status(404);
-  next(error);
+  next(new NotFoundError(`Route not found - ${req.originalUrl}`));
 };
 
 const errorHandler = (err, req, res, next) => {
-  const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal server error";
 
   res.status(statusCode).json({
     success: false,
-    message: err.message,
+    message,
     stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
   });
 };
