@@ -75,8 +75,8 @@ CLIENT_URL=http://localhost:3000
 npm run dev
 ```
 
-4. **Run with Docker (Optional):**
+4. **Run with Docker:**
 
 ```bash
-docker-compose up --build
+docker-compose up 
 ```
